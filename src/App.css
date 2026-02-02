@@ -140,6 +140,30 @@
   gap: 1rem;
 }
 
+.data-layer-viewer {
+  margin: 1rem 0;
+}
+
+.data-layer-viewer .section {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.data-layer-viewer pre {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 0.5rem;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
+.data-layer-viewer button {
+  font-size: 0.9rem;
+  padding: 0.4rem 0.8rem;
+}
+
 @media (prefers-color-scheme: light) {
   .navbar {
     background-color: #f9f9f9;
@@ -165,5 +189,14 @@
   .product-card {
     background-color: #f9f9f9;
     border-color: #e0e0e0;
+  }
+
+  .data-layer-viewer .section {
+    background-color: #f5f5f5;
+    border-color: #e0e0e0;
+  }
+
+  .data-layer-viewer pre {
+    background-color: #ffffff;
   }
 }

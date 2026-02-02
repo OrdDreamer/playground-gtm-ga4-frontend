@@ -114,3 +114,40 @@ export function initHistoryTracking() {
 
   console.log('History API tracking ініціалізовано')
 }
+
+/**
+ * Отримує поточний стан dataLayer
+ */
+export function getDataLayer() {
+  return window.dataLayer ? [...window.dataLayer] : []
+}
+
+/**
+ * Очищає dataLayer
+ */
+export function clearDataLayer() {
+  if (window.dataLayer) {
+    window.dataLayer.length = 0
+    console.log('dataLayer очищено')
+  }
+}
+
+/**
+ * Видаляє елемент з dataLayer за індексом
+ */
+export function removeFromDataLayer(index) {
+  if (window.dataLayer && index >= 0 && index < window.dataLayer.length) {
+    window.dataLayer.splice(index, 1)
+    console.log(`Елемент ${index} видалено з dataLayer`)
+  }
+}
+
+/**
+ * Оновлює елемент в dataLayer за індексом
+ */
+export function updateDataLayerItem(index, newData) {
+  if (window.dataLayer && index >= 0 && index < window.dataLayer.length) {
+    window.dataLayer[index] = { ...window.dataLayer[index], ...newData }
+    console.log(`Елемент ${index} оновлено в dataLayer`)
+  }
+}

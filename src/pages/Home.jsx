@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import EventTester from '../components/EventTester'
 import FormTracker from '../components/FormTracker'
+import DataLayerViewer from '../components/DataLayerViewer'
 
 function Home() {
   useEffect(() => {
@@ -12,6 +13,11 @@ function Home() {
       <h1>Головна сторінка</h1>
       <p>Ласкаво просимо до тестового середовища GTM/GA4</p>
       
+      <div className="section">
+        <h2>DataLayer Viewer & Manager</h2>
+        <DataLayerViewer />
+      </div>
+
       <div className="section">
         <h2>Тестування подій</h2>
         <EventTester />
