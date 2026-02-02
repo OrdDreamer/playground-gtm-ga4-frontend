@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: playground-gtm-ga4-frontend
+    env: docker
+    region: frankfurt
+    branch: main
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: VITE_GTM_CONTAINER_ID
+        sync: false
+      - key: VITE_API_URL
+        sync: false
+        optional: true
+    healthCheckPath: /
+    autoDeploy: true
