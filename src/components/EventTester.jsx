@@ -21,6 +21,7 @@ function EventTester() {
         event: eventName || 'custom_event',
         ...data
       })
+      // eslint-disable-next-line no-unused-vars
     } catch (error) {
       alert('Помилка в JSON форматі')
     }

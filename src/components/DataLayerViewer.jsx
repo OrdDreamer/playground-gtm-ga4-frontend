@@ -113,7 +113,7 @@ function DataLayerViewer() {
       setSelectedIndex(null)
       setEditData('')
     } catch (error) {
-      alert('Помилка в JSON форматі')
+      alert('Помилка в JSON форматі: ' + error.message)
     }
   }
 
@@ -144,7 +144,9 @@ function DataLayerViewer() {
           {dataLayer.length === 0 ? (
             <p>DataLayer порожній</p>
           ) : (
-            dataLayer.map((item, index) => (
+            dataLayer.slice().reverse().map((item, reverseIndex) => {
+              const index = dataLayer.length - 1 - reverseIndex
+              return (
               <div key={index} style={{ marginBottom: '1rem', padding: '0.5rem', backgroundColor: '#fff', borderRadius: '4px' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
                   <strong>Елемент {index}</strong>
@@ -171,7 +173,8 @@ function DataLayerViewer() {
                   {JSON.stringify(item, null, 2)}
                 </pre>
               </div>
-            ))
+              )
+            })
           )}
         </div>
 
@@ -218,7 +221,9 @@ function DataLayerViewer() {
             {eventsLog.length > 0 && (
               <div style={{ maxHeight: '300px', overflowY: 'auto', border: '1px solid #ccc', padding: '1rem', borderRadius: '4px', backgroundColor: '#f5f5f5' }}>
                 <h5>Лог подій ({eventsLog.length})</h5>
-                {eventsLog.map((log, index) => (
+                {eventsLog.slice().reverse().map((log, reverseIndex) => {
+                  const index = eventsLog.length - 1 - reverseIndex
+                  return (
                   <div key={index} style={{ marginBottom: '0.5rem', padding: '0.5rem', backgroundColor: '#fff', borderRadius: '4px' }}>
                     <div style={{ fontSize: '0.85rem', color: '#666' }}>
                       {new Date(log.timestamp || Date.now()).toLocaleString()}
@@ -227,7 +232,8 @@ function DataLayerViewer() {
                       {JSON.stringify(log, null, 2)}
                     </pre>
                   </div>
-                ))}
+                  )
+                })}
               </div>
             )}
           </div>
