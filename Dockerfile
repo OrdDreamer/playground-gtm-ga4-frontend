@@ -3,6 +3,14 @@ FROM node:20-alpine AS builder
 
 WORKDIR /app
 
+# Отримуємо змінні оточення як build arguments
+ARG VITE_GTM_CONTAINER_ID
+ARG VITE_API_URL
+
+# Встановлюємо змінні оточення для Vite
+ENV VITE_GTM_CONTAINER_ID=$VITE_GTM_CONTAINER_ID
+ENV VITE_API_URL=$VITE_API_URL
+
 # Копіюємо файли залежностей
 COPY package*.json ./
 

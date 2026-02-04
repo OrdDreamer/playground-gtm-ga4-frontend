@@ -53,10 +53,19 @@ npm run build
 
 ### Крок 3: Environment Variables
 
-Додайте наступні змінні оточення в розділі "Environment":
+**ВАЖЛИВО**: Змінні оточення Vite (`VITE_*`) повинні бути встановлені **ДО** збірки Docker образу, оскільки вони використовуються під час build time.
 
-- `VITE_GTM_CONTAINER_ID` - ваш GTM Container ID (наприклад: `GTM-XXXXXXX`)
-- `VITE_API_URL` - (опціонально) URL backend API, якщо використовується
+Додайте наступні змінні оточення в розділі "Environment" на Render.com:
+
+1. Перейдіть до налаштувань вашого сервісу на Render.com
+2. Відкрийте розділ "Environment"
+3. Додайте наступні змінні:
+   - **Key**: `VITE_GTM_CONTAINER_ID`
+     **Value**: ваш GTM Container ID (наприклад: `GTM-XXXXXXX`)
+   - **Key**: `VITE_API_URL` (опціонально)
+     **Value**: URL backend API, якщо використовується
+
+**Примітка**: Після додавання або зміни змінних оточення необхідно перезапустити збірку (redeploy), щоб зміни вступили в силу.
 
 ### Крок 4: Деплой
 
